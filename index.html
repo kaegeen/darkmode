@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Mode Toggle</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-black flex items-center justify-center min-h-screen transition-colors duration-300" id="page">
+  <div class="w-full max-w-md border p-6 rounded shadow text-center">
+    <p class="mb-4">Current mode: <span id="mode">Light</span></p>
+    <button onclick="toggleMode()" class="border px-4 py-2 w-full">Toggle</button>
+  </div>
+
+  <script>
+    function toggleMode() {
+      const body = document.getElementById("page")
+      const modeText = document.getElementById("mode")
+      const isDark = body.classList.contains("bg-black")
+
+      if (isDark) {
+        body.classList.remove("bg-black", "text-white")
+        body.classList.add("bg-white", "text-black")
+        modeText.textContent = "Light"
+      } else {
+        body.classList.remove("bg-white", "text-black")
+        body.classList.add("bg-black", "text-white")
+        modeText.textContent = "Dark"
+      }
+    }
+  </script>
+</body>
+</html>
